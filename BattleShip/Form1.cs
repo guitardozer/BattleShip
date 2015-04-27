@@ -18,7 +18,7 @@ namespace BattleShip
             InitializeComponent();
             
             gamemanager = GameManager.getInstance();
-            gamemanager.startup(this);            
+            //gamemanager.startup(this);            
         }
 
         public void setGameBoard(String s){
@@ -29,6 +29,10 @@ namespace BattleShip
             this.playerBoard.Text = s;            
         }
 
+        public void dispInOutputBox(String s) {
+         //   this.outputBox.Text += "\n" + s;
+            this.outputBox.AppendText(s + "\n");
+        }
         private void messageBox_TextChanged(object sender, EventArgs e)
         {
 

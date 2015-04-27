@@ -54,7 +54,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.outputBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // playerBoard
@@ -292,20 +292,21 @@
             this.label24.TabIndex = 17;
             this.label24.Text = "A";
             // 
-            // richTextBox1
+            // outputBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(273, 39);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(284, 96);
-            this.richTextBox1.TabIndex = 27;
-            this.richTextBox1.Text = "";
+            this.outputBox.Location = new System.Drawing.Point(273, 39);
+            this.outputBox.Name = "outputBox";
+            this.outputBox.ReadOnly = true;
+            this.outputBox.Size = new System.Drawing.Size(284, 96);
+            this.outputBox.TabIndex = 27;
+            this.outputBox.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 436);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.outputBox);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
@@ -367,7 +368,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox outputBox;
 
     }
 }

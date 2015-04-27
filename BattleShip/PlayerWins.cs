@@ -17,5 +17,10 @@ namespace BattleShip
         {
             throw new NotImplementedException();
         }
+
+        public override void showGui()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -16,7 +16,13 @@ namespace BattleShip
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            GameManager gm = GameManager.getInstance();
+            gm.startTheGame();
+          
+           // gm.startTheGame();
+           // GameManager.getInstance().gamestate = GameState.start();
+            //gm.setGameState(GameState.start());
+          //  Application.Run(new StartMenu());
             
         }
     }
