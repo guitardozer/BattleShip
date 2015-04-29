@@ -8,6 +8,7 @@ namespace BattleShip
 {
     class P1PlaceShips:GameState
     {
+        ShipFactory sfactory = new ShipFactory();
         public override void enter()
         {
             this.showGui();
@@ -16,12 +17,19 @@ namespace BattleShip
 
         public override void exit()
         {
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
 
         public override GameState nextState(int evt)
         {
-            throw new NotImplementedException();
+            if (evt == donePlacingPressed)
+            {
+                // this is just for testing it just puts a couple of ships on the board
+                
+                GameManager.getInstance().player1.addShip(ShipFactory.getNewShip("twoHit", new Point(3,3), new Point(3,4)));
+                return GameState.getP2PlaceShips();
+            }
+            return this;
         }
 
         public override void showGui()

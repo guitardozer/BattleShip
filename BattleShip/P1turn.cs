@@ -13,6 +13,11 @@ namespace BattleShip
         public override void enter()
         {
             this.showGui();
+            Form1 ff = (Form1)GameManager.getInstance().gui;
+           
+            List<Ship> shipLocsList = GameManager.getInstance().player1.getShipLocations();
+
+            ff.showPlayerShips(shipLocsList);
             //Form1 f = new Form1();
            // Application.Run(f);
             

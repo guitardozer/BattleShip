@@ -16,5 +16,10 @@ namespace BattleShip
         {
             InitializeComponent();
         }
+
+        private void doneButton_Click(object sender, EventArgs e)
+        {
+            GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.donePlacingPressed);
+        }
     }
 }

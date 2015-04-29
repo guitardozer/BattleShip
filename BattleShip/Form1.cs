@@ -29,6 +29,16 @@ namespace BattleShip
             this.playerBoard.Text = s;            
         }
 
+        public void showPlayerShips(List<Ship> ships) {
+            List<Point> pts = new List<Point>();
+            for (int i = 0; i < ships.Count; i++) { 
+                pts = ships.ElementAt(i).getPoints();
+                this.playerBoard.Text += pts.Count + " ";
+            }
+        }
+        public void showEnemyShips(List<ShipIF> enemyShips) { 
+            
+        }
         public void dispInOutputBox(String s) {
          //   this.outputBox.Text += "\n" + s;
             this.outputBox.AppendText(s + "\n");

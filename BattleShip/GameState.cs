@@ -14,8 +14,11 @@ namespace BattleShip
         static P2turn p2t;
         static SaveGame sg;
         static P1PlaceShips p1p;
+        static P2PlaceShips p2p;
+        static NewGame ng;
 
         public const int newGameButtonPressed = 0;
+        public const int donePlacingPressed = 1;
         
         public GameState processEvent(int evt) {
             GameState gm = this.nextState(evt);
@@ -43,17 +46,21 @@ namespace BattleShip
                 p2t = new P2turn();
                 sg = new SaveGame();
                 p1p = new P1PlaceShips();
-                
-                                            
+                p2p = new P2PlaceShips();                                                            
             }
 
             ss.enter();
             return ss;
         }
+        protected static GameState getNewGame() {
+            return ng;
+        }
         protected static GameState getP1Turn() {
             return p1t;
         }
-
+        protected static GameState getP2PlaceShips() {
+            return p2p;
+        }
         protected static GameState getP1PlaceShips() {
             return p1p;
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleShip
 {
-    interface ShipIF
+    public interface ShipIF
     {
         void showHit();
         bool isSunk();

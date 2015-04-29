@@ -29,8 +29,19 @@ namespace BattleShip
         public void hitPoint(Point p) {
             hits.Add(p);
         }
-        public void show() { 
-            
+        public String show() {
+            String s = "";
+            for (int i = 0; i < this.location.Count; i++) {
+                s += "(";
+                s += this.location.ElementAt(i).x;
+                s += ", ";
+                s += this.location.ElementAt(i).y;
+
+            }
+            return s;
+        }
+        public List<Point> getPoints() {
+            return this.location;
         }
     }
 }

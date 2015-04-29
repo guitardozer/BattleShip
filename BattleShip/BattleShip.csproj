@@ -63,6 +63,7 @@
     <Compile Include="NewGame.cs" />
     <Compile Include="P1PlaceShips.cs" />
     <Compile Include="P1turn.cs" />
+    <Compile Include="P2PlaceShips.cs" />
     <Compile Include="P2turn.cs" />
     <Compile Include="PlacementMenu.cs">
       <SubType>Form</SubType>
