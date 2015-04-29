@@ -13,6 +13,11 @@ namespace BattleShip
             throw new NotImplementedException();
         }
 
+        public override void exit()
+        {
+            throw new NotImplementedException();
+        }
+
         public override GameState nextState(int evt)
         {
             throw new NotImplementedException();

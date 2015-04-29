@@ -13,6 +13,7 @@ namespace BattleShip
         static P1turn p1t;
         static P2turn p2t;
         static SaveGame sg;
+        static P1PlaceShips p1p;
 
         public const int newGameButtonPressed = 0;
         
@@ -20,7 +21,7 @@ namespace BattleShip
             GameState gm = this.nextState(evt);
             if (this != gm)
             {
-                //this.exit();
+                this.exit();
                 gm.enter();
             }
             return gm;
@@ -30,6 +31,7 @@ namespace BattleShip
 
         // all subclasses (representing particular states) will implement these
         public abstract void enter();
+        public abstract void exit();
         public abstract GameState nextState(int evt);
         public abstract void showGui();
         public static GameState start()
@@ -40,6 +42,9 @@ namespace BattleShip
                 p1t = new P1turn();
                 p2t = new P2turn();
                 sg = new SaveGame();
+                p1p = new P1PlaceShips();
+                
+                                            
             }
 
             ss.enter();
@@ -49,5 +54,8 @@ namespace BattleShip
             return p1t;
         }
 
+        protected static GameState getP1PlaceShips() {
+            return p1p;
+        }
     }
 }

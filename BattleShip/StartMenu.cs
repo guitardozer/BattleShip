@@ -15,9 +15,7 @@ namespace BattleShip
           public GameManager gm;
         public StartMenu()
         {
-            InitializeComponent();
-        
-
+            InitializeComponent();        
         }
 
         private void StartMenu_Load(object sender, EventArgs e)
@@ -30,10 +28,13 @@ namespace BattleShip
        
             GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.newGameButtonPressed);
             label1.Text = GameManager.getInstance().gamestate.ToString();
-            this.Hide();
-            GameManager.getInstance().gamestate.showGui();
-            this.Close();
+            //GameManager.getInstance().gamestate.showGui();
         
+        }
+
+        private void StartMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+          
         }
     }
 }

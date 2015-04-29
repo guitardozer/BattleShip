@@ -54,15 +54,34 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GameManager.cs" />
+    <Compile Include="LoadMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadMenu.Designer.cs">
+      <DependentUpon>LoadMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewGame.cs" />
+    <Compile Include="P1PlaceShips.cs" />
     <Compile Include="P1turn.cs" />
     <Compile Include="P2turn.cs" />
+    <Compile Include="PlacementMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlacementMenu.Designer.cs">
+      <DependentUpon>PlacementMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PlayerWins.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaveGame.cs" />
+    <Compile Include="SaveMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveMenu.Designer.cs">
+      <DependentUpon>SaveMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ship.cs" />
     <Compile Include="ShipFactory.cs" />
     <Compile Include="ShipIF.cs" />
@@ -74,8 +93,17 @@
     </Compile>
     <Compile Include="StartScreen.cs" />
     <Compile Include="TwoHit.cs" />
+    <Compile Include="WinGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinGUI.Designer.cs">
+      <DependentUpon>WinGUI.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlacementMenu.resx">
+      <DependentUpon>PlacementMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

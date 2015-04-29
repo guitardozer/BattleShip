@@ -16,20 +16,25 @@ namespace BattleShip
         }
         public override void enter()
         {
+            //this.showGui();
+        }
+
+        public override void exit()
+        {
             
         }
 
         public override GameState nextState(int evt)
         {
             if (evt == newGameButtonPressed) {
-                return GameState.getP1Turn();
+                return GameState.getP1PlaceShips();
             }
             return this;
         }
 
         public override void showGui() {
-            StartMenu sm = new StartMenu();
-            Application.Run(sm);
+            GameManager.getInstance().gui = new StartMenu();
+            Application.Run(GameManager.getInstance().gui);
         }
     }
 }

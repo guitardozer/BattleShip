@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace BattleShip
 {
-    class P2turn : GameState
+    class P1PlaceShips:GameState
     {
         public override void enter()
         {
-            throw new NotImplementedException();
+            this.showGui();
+            GameManager.getInstance().player1 = new Player();
         }
 
         public override void exit()
@@ -25,7 +26,9 @@ namespace BattleShip
 
         public override void showGui()
         {
-            throw new NotImplementedException();
+            GameManager.getInstance().gui.Hide();
+            GameManager.getInstance().gui = new PlacementMenu();
+            GameManager.getInstance().gui.Show();
         }
     }
 }

@@ -18,6 +18,7 @@ namespace BattleShip
             Application.SetCompatibleTextRenderingDefault(false);
             GameManager gm = GameManager.getInstance();
             gm.startTheGame();
+          //  Application.Run(new Form1());
           
            // gm.startTheGame();
            // GameManager.getInstance().gamestate = GameState.start();

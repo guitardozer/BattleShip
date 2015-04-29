@@ -8,8 +8,13 @@ namespace BattleShip
 {
     class GameLoad: GameState
     {
-        public GameLoader loader;
+        //public GameLoader loader;
         public override void enter()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void exit()
         {
             throw new NotImplementedException();
         }

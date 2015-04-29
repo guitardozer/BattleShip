@@ -12,10 +12,12 @@ namespace BattleShip
     {
 
         public GameState gamestate;
-        public Form1 gui;
+        public Form gui;
         public Player player1;
         public Player player2;
         private static GameManager onlyInstance;
+
+        
 
         private GameManager() { 
            // this.gamestate = GameState.start();
@@ -33,18 +35,11 @@ namespace BattleShip
         }
 
         public void startTheGame() {
-           // onlyInstance.gamestate = GameState.start();
             GameManager.getInstance().setGameState(GameState.start());
             GameManager.getInstance().gamestate.showGui();
-            //StartMenu sm = new StartMenu();
-            //Application.Run(sm);
-
         }
-        /*public void startup(Form g){
-            onlyInstance.gui = new Form1();
-        
-        }*/
 
+        
         // later will have methods to support saving a memento and loading from a memento
     }
 }

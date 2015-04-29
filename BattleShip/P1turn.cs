@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace BattleShip
@@ -11,10 +12,15 @@ namespace BattleShip
     {
         public override void enter()
         {
-            
+            this.showGui();
             //Form1 f = new Form1();
            // Application.Run(f);
             
+        }
+
+        public override void exit()
+        {
+            throw new NotImplementedException();
         }
 
         public override GameState nextState(int evt)
@@ -24,8 +30,12 @@ namespace BattleShip
 
         public override void showGui()
         {
-            Form1 fff = new Form1();
-            fff.ShowDialog();
+
+            GameManager.getInstance().gui.Hide();            
+            GameManager.getInstance().gui = new Form1();
+            GameManager.getInstance().gui.Show();
+            
+            
            // throw new NotImplementedException();
         }
     }
