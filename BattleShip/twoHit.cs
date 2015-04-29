@@ -33,17 +33,59 @@ namespace BattleShip
 
         public override void moveLeft()
         {
-            throw new NotImplementedException();
+            bool canMove = true;
+            for (int i = 0; i < location.Count; i++)
+            {
+                if (this.location.ElementAt(i).x < 1)
+                {
+                    canMove = false;
+                }
+            }
+            if (canMove)
+            {
+                for (int i = 0; i < location.Count; i++)
+                {
+                    this.location.ElementAt(i).x -= 1;
+                }
+            }
         }
 
         public override void moveUp()
         {
-            throw new NotImplementedException();
+            bool canMove = true;
+            for (int i = 0; i < location.Count; i++)
+            {
+                if (this.location.ElementAt(i).y < 1)
+                {
+                    canMove = false;
+                }
+            }
+            if (canMove)
+            {
+                for (int i = 0; i < location.Count; i++)
+                {
+                    this.location.ElementAt(i).y -= 1;
+                }
+            }
         }
 
         public override void moveDown()
         {
-            throw new NotImplementedException();
+            bool canMove = true;
+            for (int i = 0; i < location.Count; i++)
+            {
+                if (this.location.ElementAt(i).y > 8)
+                {
+                    canMove = false;
+                }
+            }
+            if (canMove)
+            {
+                for (int i = 0; i < location.Count; i++)
+                {
+                    this.location.ElementAt(i).y += 1;
+                }
+            }
         }
 
         public override void rotateLeft()

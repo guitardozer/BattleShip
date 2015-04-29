@@ -91,5 +91,29 @@ namespace BattleShip
             //sel.Add(selected);
             //showPlayerShips(sel);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            shipsAvailable.ElementAt(comboBox1.SelectedIndex).moveUp();
+            List<Ship> sel = new List<Ship>();
+            sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            showPlayerShips(sel);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            shipsAvailable.ElementAt(comboBox1.SelectedIndex).moveLeft();
+            List<Ship> sel = new List<Ship>();
+            sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            showPlayerShips(sel);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            shipsAvailable.ElementAt(comboBox1.SelectedIndex).moveDown();
+            List<Ship> sel = new List<Ship>();
+            sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            showPlayerShips(sel);
+        }
     }
 }
