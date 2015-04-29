@@ -8,26 +8,14 @@ namespace BattleShip
 {
     public class Point
     {
-        private int xpos;
-        private int ypos;
-        public int x
-        {
-            get
-            {
-                return xpos;
-            }           
-        }
-        public int y
-        {
-            get 
-            {
-                return ypos;
-            }
-        }
+
+        public int x;
+
+        public int y;
 
         public Point(int xval, int yval) {
-            this.xpos = xval;
-            this.ypos = yval;
+            this.x = xval;
+            this.y = yval;
         }
     }
 }

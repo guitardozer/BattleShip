@@ -15,7 +15,12 @@ namespace BattleShip
         {
             return hits;
         }
-
+        public abstract void moveRight();
+        public abstract void moveLeft();
+        public abstract void moveUp();
+        public abstract void moveDown();
+        public abstract void rotateLeft();
+        public abstract void rotateRight();
         public bool isSunk()
         {
             Boolean sunk = true;

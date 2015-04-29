@@ -24,5 +24,9 @@ namespace BattleShip
             s.hitPoint(p1);
             return s;
         }
+        public static Ship getNewShip(String boatType) {
+            Ship s = new TwoHit();
+            return s;
+        }
     }
 }

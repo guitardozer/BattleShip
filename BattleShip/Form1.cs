@@ -46,10 +46,10 @@ namespace BattleShip
                 hits = ships.ElementAt(i).showHit();
                 for (int j = 0; j < pts.Count; j++)
                 {
-                    grid[pts.ElementAt(j).x, pts.ElementAt(j).y] = 'o';
+                    grid[pts.ElementAt(j).y, pts.ElementAt(j).x] = 'o';
                 }
                 for (int k = 0; k < hits.Count; k++) {
-                    grid[hits.ElementAt(k).x, hits.ElementAt(k).y] = 'x';
+                    grid[hits.ElementAt(k).y, hits.ElementAt(k).x] = 'x';
                 }
             }
             
