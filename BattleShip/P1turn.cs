@@ -25,11 +25,16 @@ namespace BattleShip
 
         public override void exit()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override GameState nextState(int evt)
         {
+            if (evt == endTurnPressed)
+            {
+                
+                return GameState.getP2Turn();
+            }
             return this;
         }
 

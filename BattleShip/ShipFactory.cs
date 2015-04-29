@@ -21,6 +21,7 @@ namespace BattleShip
             pts.Add(p1);
             pts.Add(p2);
             Ship s = new TwoHit(pts);
+            s.hitPoint(p1);
             return s;
         }
     }

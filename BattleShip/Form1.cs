@@ -31,10 +31,39 @@ namespace BattleShip
 
         public void showPlayerShips(List<Ship> ships) {
             List<Point> pts = new List<Point>();
-            for (int i = 0; i < ships.Count; i++) { 
-                pts = ships.ElementAt(i).getPoints();
-                this.playerBoard.Text += pts.Count + " ";
+            List<Point> hits = new List<Point>();
+            char[,] grid = new char[10, 10];
+            // put x through whole grid
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
+                    grid[i, j] = '~';
+                }
             }
+            // put o for ship spots
+            for (int i = 0; i < ships.Count; i++)
+            {
+                pts = ships.ElementAt(i).getPoints();
+                hits = ships.ElementAt(i).showHit();
+                for (int j = 0; j < pts.Count; j++)
+                {
+                    grid[pts.ElementAt(j).x, pts.ElementAt(j).y] = 'o';
+                }
+                for (int k = 0; k < hits.Count; k++) {
+                    grid[hits.ElementAt(k).x, hits.ElementAt(k).y] = 'x';
+                }
+            }
+            
+            // draw array to the text box
+            String toDraw = "";
+            for (int i = 0; i < 10; i++) {
+                toDraw += " ";
+                for (int j = 0; j < 10; j++) {
+                    toDraw += grid[i, j];
+                    toDraw += "  ";
+                }
+                toDraw += "\n";
+            }
+            this.playerBoard.Text = toDraw;
         }
         public void showEnemyShips(List<ShipIF> enemyShips) { 
             
@@ -56,6 +85,11 @@ namespace BattleShip
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.endTurnPressed);
         }
     }
 }

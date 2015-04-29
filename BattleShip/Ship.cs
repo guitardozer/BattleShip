@@ -11,9 +11,9 @@ namespace BattleShip
         public List<Point> location = new List<Point>();
         List<Point> hits = new List<Point>();
         public Ship() { }
-        public void showHit()
+        public List<Point> showHit()
         {
-            throw new NotImplementedException();
+            return hits;
         }
 
         public bool isSunk()
@@ -43,5 +43,6 @@ namespace BattleShip
         public List<Point> getPoints() {
             return this.location;
         }
+        
     }
 }

@@ -19,6 +19,7 @@ namespace BattleShip
 
         public const int newGameButtonPressed = 0;
         public const int donePlacingPressed = 1;
+        public const int endTurnPressed = 2;
         
         public GameState processEvent(int evt) {
             GameState gm = this.nextState(evt);
@@ -57,6 +58,9 @@ namespace BattleShip
         }
         protected static GameState getP1Turn() {
             return p1t;
+        }
+        protected static GameState getP2Turn() {
+            return p2t;
         }
         protected static GameState getP2PlaceShips() {
             return p2p;

@@ -11,6 +11,7 @@ namespace BattleShip
         public string name;
         private List<Ship> activeShips = new List<Ship>();
         public List<Ship> sunkShips = new List<Ship>();
+        public List<Point> shotsFired = new List<Point>();
 
         public List<Ship> getShipLocations() {
             List<Ship> locs = new List<Ship>();
@@ -23,6 +24,7 @@ namespace BattleShip
             }
             return locs;
         }
+        
         public void addShip(Ship s) {
             activeShips.Add(s);
         }

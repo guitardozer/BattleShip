@@ -27,6 +27,7 @@ namespace BattleShip
                 // this is just for testing it just puts a couple of ships on the board
                 
                 GameManager.getInstance().player1.addShip(ShipFactory.getNewShip("twoHit", new Point(3,3), new Point(3,4)));
+                
                 return GameState.getP2PlaceShips();
             }
             return this;

@@ -10,22 +10,34 @@ namespace BattleShip
     {
         public override void enter()
         {
-            throw new NotImplementedException();
+            this.showGui();
+            Form1 ff = (Form1)GameManager.getInstance().gui;
+
+            List<Ship> shipLocsList = GameManager.getInstance().player2.getShipLocations();
+
+            ff.showPlayerShips(shipLocsList);
         }
 
         public override void exit()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override GameState nextState(int evt)
         {
-            throw new NotImplementedException();
+            if (evt == endTurnPressed)
+            {
+
+                return GameState.getP1Turn();
+            }
+            return this;
         }
 
         public override void showGui()
         {
-            throw new NotImplementedException();
+            GameManager.getInstance().gui.Hide();
+            GameManager.getInstance().gui = new Form1();
+            GameManager.getInstance().gui.Show();
         }
     }
 }
