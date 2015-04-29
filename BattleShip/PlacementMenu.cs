@@ -13,13 +13,13 @@ namespace BattleShip
     public partial class PlacementMenu : Form
     {
         List<Ship> shipsAvailable = new List<Ship>();
-        List<Ship> completedShips = new List<Ship>();
+        public List<Ship> completedShips = new List<Ship>();
         public PlacementMenu()
         {
             InitializeComponent();
 
             // for now only three twoHit ships are available
-            shipsAvailable.Add(ShipFactory.getNewShip("twoHit", new Point(0,0), new Point(0,1)));
+            shipsAvailable.Add(ShipFactory.getNewShip("twoHit", new Point(0,0), new Point(1,0)));
             shipsAvailable.Add(ShipFactory.getNewShip("twoHit", new Point(0,0), new Point(0,1)));
             shipsAvailable.Add(ShipFactory.getNewShip("twoHit", new Point(0,0), new Point(0,1)));
             showPlayerShips(new List<Ship>());
@@ -29,6 +29,7 @@ namespace BattleShip
 
         private void doneButton_Click(object sender, EventArgs e)
         {
+           // completedShips = shipsAvailable;
             GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.donePlacingPressed);
         }
 
@@ -75,7 +76,11 @@ namespace BattleShip
         {
             List<Ship> selected = new List<Ship>();
            // selected.Add((Ship)comboBox1.SelectedItem);
+
             selected.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            for (int i = 0; i < completedShips.Count; i++) {
+                selected.Add(completedShips.ElementAt(i));
+            }
             showPlayerShips(selected);
         }
 
@@ -84,6 +89,10 @@ namespace BattleShip
             shipsAvailable.ElementAt(comboBox1.SelectedIndex).moveRight();
             List<Ship> sel = new List<Ship>();
             sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            for (int i = 0; i < completedShips.Count; i++)
+            {
+                sel.Add(completedShips.ElementAt(i));
+            }
             showPlayerShips(sel);
             //Ship selected = shipsAvailable.ElementAt(comboBox1.SelectedIndex);
             //selected.moveRight();
@@ -97,6 +106,10 @@ namespace BattleShip
             shipsAvailable.ElementAt(comboBox1.SelectedIndex).moveUp();
             List<Ship> sel = new List<Ship>();
             sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            for (int i = 0; i < completedShips.Count; i++)
+            {
+                sel.Add(completedShips.ElementAt(i));
+            }
             showPlayerShips(sel);
         }
 
@@ -105,6 +118,10 @@ namespace BattleShip
             shipsAvailable.ElementAt(comboBox1.SelectedIndex).moveLeft();
             List<Ship> sel = new List<Ship>();
             sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            for (int i = 0; i < completedShips.Count; i++)
+            {
+                sel.Add(completedShips.ElementAt(i));
+            }
             showPlayerShips(sel);
         }
 
@@ -113,7 +130,46 @@ namespace BattleShip
             shipsAvailable.ElementAt(comboBox1.SelectedIndex).moveDown();
             List<Ship> sel = new List<Ship>();
             sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            for (int i = 0; i < completedShips.Count; i++)
+            {
+                sel.Add(completedShips.ElementAt(i));
+            }
             showPlayerShips(sel);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // rotate left
+            shipsAvailable.ElementAt(comboBox1.SelectedIndex).rotateLeft();
+            List<Ship> sel = new List<Ship>();
+            sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            for (int i = 0; i < completedShips.Count; i++)
+            {
+                sel.Add(completedShips.ElementAt(i));
+            }
+            showPlayerShips(sel);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            // rotate right
+            shipsAvailable.ElementAt(comboBox1.SelectedIndex).rotateRight();
+            List<Ship> sel = new List<Ship>();
+            sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            for (int i = 0; i < completedShips.Count; i++)
+            {
+                sel.Add(completedShips.ElementAt(i));
+            }
+            showPlayerShips(sel);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            // place ship
+            completedShips.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            //shipsAvailable.RemoveAt(comboBox1.SelectedIndex);
+            //comboBox1.Items.Remove(comboBox1.SelectedIndex);
+
         }
     }
 }

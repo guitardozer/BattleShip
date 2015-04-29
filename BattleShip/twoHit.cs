@@ -90,7 +90,28 @@ namespace BattleShip
 
         public override void rotateLeft()
         {
-            throw new NotImplementedException();
+            if (location.Count == 2) {
+                if (location.ElementAt(0).y == location.ElementAt(1).y) {
+                    if (location.ElementAt(0).x < location.ElementAt(1).x) {
+                        if (location.ElementAt(0).x < 9 && location.ElementAt(0).y > 1)
+                        {
+                            location.ElementAt(0).x += 1;
+                            location.ElementAt(0).y -= 1;
+                        }
+                    }
+                    else if (location.ElementAt(1).x < location.ElementAt(0).x) {
+                        if (location.ElementAt(1).x < 9 && location.ElementAt(1).y > 1)
+                        {
+                            location.ElementAt(1).x += 1;
+                            location.ElementAt(1).y -= 1;
+                        }
+                    }
+                }
+                else if (location.ElementAt(0).x == location.ElementAt(1).x) { 
+                    
+                
+                }
+            }            
         }
 
         public override void rotateRight()
