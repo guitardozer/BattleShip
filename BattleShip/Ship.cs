@@ -12,6 +12,9 @@ namespace BattleShip
         public List<Point> location = new List<Point>();
         List<Point> hits = new List<Point>();
         public Ship() { }
+        public Ship(List<Point> locations) {
+            this.location = locations;
+        }
         public List<Point> showHit()
         {
             return hits;

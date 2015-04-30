@@ -30,8 +30,10 @@ namespace BattleShip
             this.playerBoard.Text = s;            
         }
 
-        public void showEnemyShips(List<ShipIF> ships) {
+        public void showEnemyShips(Player p1, Player p2) {
             List<Point> pts = new List<Point>();
+            List<ShipIF> ships = p1.getHitInfo();
+            List<Point> misses = p2.shotsFired;
             char[,] grid = new char[10, 10];
             // put x through whole grid
             for (int i = 0; i < 10; i++)
@@ -51,6 +53,9 @@ namespace BattleShip
                 }
                 
             }
+            for (int i = 0; i < misses.Count; i++) {
+                grid[misses.ElementAt(i).y, misses.ElementAt(i).x] = '#';
+            }
             // draw array to the text box
             String toDraw = "";
             for (int i = 0; i < 10; i++)
@@ -66,9 +71,11 @@ namespace BattleShip
             this.enemyBoard.Text = toDraw;
 
         }
-        public void showPlayerShips(List<Ship> ships) {
+        public void showPlayerShips(Player p1, Player p2) {
             List<Point> pts = new List<Point>();
+            List<Ship> ships = p1.getShipLocations();
             List<Point> hits = new List<Point>();
+            List<Point> misses = p2.shotsFired;
             char[,] grid = new char[10, 10];
             // put x through whole grid
             for (int i = 0; i < 10; i++) {
@@ -89,7 +96,11 @@ namespace BattleShip
                     grid[hits.ElementAt(k).y, hits.ElementAt(k).x] = 'x';
                 }
             }
-            
+
+            for (int i = 0; i < misses.Count; i++)
+            {
+                grid[misses.ElementAt(i).y, misses.ElementAt(i).x] = '#';
+            }
             // draw array to the text box
             String toDraw = "";
             for (int i = 0; i < 10; i++) {

@@ -23,7 +23,7 @@ namespace BattleShip
           
             shipsAvailable.Add(ShipFactory.getNewShip("TwoHit"));
             shipsAvailable.Add(ShipFactory.getNewShip("TwoHit"));
-            shipsAvailable.Add(ShipFactory.getNewShip("TwoHit"));
+            shipsAvailable.Add(ShipFactory.getNewShip("ThreeHit"));
             
             showPlayerShips(new List<Ship>());
             comboBox1.Items.AddRange(shipsAvailable.ToArray());

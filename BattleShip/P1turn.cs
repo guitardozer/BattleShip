@@ -18,8 +18,8 @@ namespace BattleShip
            
             List<Ship> shipLocsList = GameManager.getInstance().player1.getShipLocations();
             List<ShipIF> enemyShips = GameManager.getInstance().player2.getHitInfo();
-            ff.showPlayerShips(shipLocsList);
-            ff.showEnemyShips(enemyShips);
+            ff.showPlayerShips(GameManager.getInstance().player1, GameManager.getInstance().player2);
+            ff.showEnemyShips(GameManager.getInstance().player2, GameManager.getInstance().player1);
             //Form1 f = new Form1();
            // Application.Run(f);
             
@@ -43,8 +43,10 @@ namespace BattleShip
                 ff.label13.Text = ff.getShotX().ToString() + " " + ff.getShotY().ToString();
                 //Point p = new Point(ff.getShotX(), ff.getShotY());
                 Point p = new Point(ff.getShotX(), ff.getShotY());
-                GameManager.getInstance().player2.getHit(p);
-                ff.showEnemyShips(GameManager.getInstance().player2.getHitInfo());
+                bool hit = GameManager.getInstance().player2.getHit(p);
+                if(!hit)
+                    GameManager.getInstance().player1.addShotFired(p);
+                ff.showEnemyShips(GameManager.getInstance().player2, GameManager.getInstance().player1);
                 return this;
             }
             if (evt == saveGamePressed) {

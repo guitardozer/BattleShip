@@ -96,6 +96,7 @@
       <DependentUpon>StartMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="StartScreen.cs" />
+    <Compile Include="ThreeHit.cs" />
     <Compile Include="TwoHit.cs" />
     <Compile Include="WinGUI.cs">
       <SubType>Form</SubType>
