@@ -91,5 +91,17 @@ namespace BattleShip
         {
             GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.endTurnPressed);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // FIREEE
+            GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.firePressed);
+        }
+        public int getShotX() {
+            return comboBox1.SelectedIndex;
+        }
+        public int getShotY() {
+            return comboBox2.SelectedIndex;
+        }
     }
 }

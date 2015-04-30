@@ -20,6 +20,7 @@ namespace BattleShip
         public const int newGameButtonPressed = 0;
         public const int donePlacingPressed = 1;
         public const int endTurnPressed = 2;
+        public const int firePressed = 3;
         
         public GameState processEvent(int evt) {
             GameState gm = this.nextState(evt);

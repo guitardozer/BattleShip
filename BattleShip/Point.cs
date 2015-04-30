@@ -17,5 +17,14 @@ namespace BattleShip
             this.x = xval;
             this.y = yval;
         }
+        public bool isSameAs(Point pp) {
+            if (pp.x == this.x && pp.y == this.y)
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 }

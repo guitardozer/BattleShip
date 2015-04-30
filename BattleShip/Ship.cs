@@ -31,8 +31,25 @@ namespace BattleShip
             }
             return sunk;
         }
+        public bool containsPoint(Point p) {
+            for (int i = 0; i < location.Count; i++) {
+                if (location.ElementAt(i).isSameAs(p)) {
+                    return true;
+                }            
+            }
+            return false;
+        }
         public void hitPoint(Point p) {
-            hits.Add(p);
+            bool alreadyHit = false;
+            for (int i = 0; i < hits.Count; i++) {
+                if (hits.ElementAt(i).isSameAs(p)) {
+                    alreadyHit = true;
+                }
+            }
+            if (!alreadyHit) {
+                hits.Add(p);
+            }
+            
         }
         public String show() {
             String s = "";

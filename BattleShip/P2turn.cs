@@ -13,8 +13,7 @@ namespace BattleShip
             this.showGui();
             Form1 ff = (Form1)GameManager.getInstance().gui;
 
-            List<Ship> shipLocsList = GameManager.getInstance().player2.getShipLocations();
-
+            List<Ship> shipLocsList = GameManager.getInstance().player2.getShipLocations();            
             ff.showPlayerShips(shipLocsList);
         }
 
@@ -29,6 +28,16 @@ namespace BattleShip
             {
 
                 return GameState.getP1Turn();
+            }
+            if (evt == firePressed)
+            {
+
+                Form1 ff = (Form1)GameManager.getInstance().gui;
+                ff.label13.Text = ff.getShotX().ToString() + " " + ff.getShotY().ToString();
+                //Point p = new Point(ff.getShotX(), ff.getShotY());
+                Point p = new Point(ff.getShotX(), ff.getShotY());
+                GameManager.getInstance().player1.getHit(p);
+                return this;
             }
             return this;
         }

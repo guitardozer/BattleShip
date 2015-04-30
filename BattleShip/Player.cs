@@ -24,7 +24,14 @@ namespace BattleShip
             }
             return locs;
         }
+        public void getHit(Point p) {
+            for (int i = 0; i < activeShips.Count; i++) {
+                if (activeShips.ElementAt(i).containsPoint(p)) {
+                    activeShips.ElementAt(i).hitPoint(p);
+                }
+            }
         
+        }
         public void addShip(Ship s) {
             activeShips.Add(s);
         }
