@@ -29,6 +29,9 @@ namespace BattleShip
             if (evt == newGameButtonPressed) {
                 return GameState.getP1PlaceShips();
             }
+            if (evt == loadGameButtonPressed) {
+                return GameState.getLoadGame();
+            }
             return this;
         }
 

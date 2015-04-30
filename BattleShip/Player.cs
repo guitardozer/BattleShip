@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleShip
 {
+    [Serializable()]
     public class Player
     {
         public string name;
@@ -13,6 +14,16 @@ namespace BattleShip
         public List<Ship> sunkShips = new List<Ship>();
         public List<Point> shotsFired = new List<Point>();
 
+        public List<ShipIF> getHitInfo() {
+            List<ShipIF> hitInfo = new List<ShipIF>();
+            for (int i = 0; i < activeShips.Count; i++) {
+                hitInfo.Add((ShipIF)activeShips.ElementAt(i));
+            }
+            for (int i = 0; i < sunkShips.Count; i++) {
+                hitInfo.Add((ShipIF)sunkShips.ElementAt(i));
+            }
+            return hitInfo;
+        }
         public List<Ship> getShipLocations() {
             List<Ship> locs = new List<Ship>();
             // later this will have to draw sunkships too
@@ -34,6 +45,9 @@ namespace BattleShip
         }
         public void addShip(Ship s) {
             activeShips.Add(s);
+        }
+        public void addShotFired(Point p) {
+            shotsFired.Add(p);
         }
     }
 }

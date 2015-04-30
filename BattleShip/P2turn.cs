@@ -12,9 +12,10 @@ namespace BattleShip
         {
             this.showGui();
             Form1 ff = (Form1)GameManager.getInstance().gui;
-
-            List<Ship> shipLocsList = GameManager.getInstance().player2.getShipLocations();            
+            List<Ship> shipLocsList = GameManager.getInstance().player2.getShipLocations();
+            List<ShipIF> enemyShips = GameManager.getInstance().player1.getHitInfo();
             ff.showPlayerShips(shipLocsList);
+            ff.showEnemyShips(enemyShips);
         }
 
         public override void exit()
@@ -34,9 +35,16 @@ namespace BattleShip
 
                 Form1 ff = (Form1)GameManager.getInstance().gui;
                 ff.label13.Text = ff.getShotX().ToString() + " " + ff.getShotY().ToString();
+                
                 //Point p = new Point(ff.getShotX(), ff.getShotY());
                 Point p = new Point(ff.getShotX(), ff.getShotY());
                 GameManager.getInstance().player1.getHit(p);
+                ff.showEnemyShips(GameManager.getInstance().player1.getHitInfo());
+                return this;
+            }
+            if (evt == saveGamePressed)
+            {
+                GameManager.getInstance().saveMemento();
                 return this;
             }
             return this;

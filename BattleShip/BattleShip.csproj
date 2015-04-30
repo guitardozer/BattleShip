@@ -54,12 +54,15 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GameManager.cs" />
+    <Compile Include="LoadGame.cs" />
     <Compile Include="LoadMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoadMenu.Designer.cs">
       <DependentUpon>LoadMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Memento.cs" />
+    <Compile Include="MementoIF.cs" />
     <Compile Include="NewGame.cs" />
     <Compile Include="P1PlaceShips.cs" />
     <Compile Include="P1turn.cs" />
@@ -103,6 +106,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoadMenu.resx">
+      <DependentUpon>LoadMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlacementMenu.resx">
       <DependentUpon>PlacementMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +122,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SaveMenu.resx">
+      <DependentUpon>SaveMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartMenu.resx">
       <DependentUpon>StartMenu.cs</DependentUpon>
     </EmbeddedResource>

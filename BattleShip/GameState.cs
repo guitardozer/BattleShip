@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace BattleShip
 {
+    [Serializable()]
     public abstract class GameState
     {
         static StartScreen ss;
@@ -16,11 +17,16 @@ namespace BattleShip
         static P1PlaceShips p1p;
         static P2PlaceShips p2p;
         static NewGame ng;
+        static LoadGame lg;
 
         public const int newGameButtonPressed = 0;
         public const int donePlacingPressed = 1;
         public const int endTurnPressed = 2;
         public const int firePressed = 3;
+        public const int loadGameButtonPressed = 4;
+        public const int saveGamePressed = 5;
+        public const int loadFileSelectedPressed = 6;
+
         
         public GameState processEvent(int evt) {
             GameState gm = this.nextState(evt);
@@ -48,7 +54,8 @@ namespace BattleShip
                 p2t = new P2turn();
                 sg = new SaveGame();
                 p1p = new P1PlaceShips();
-                p2p = new P2PlaceShips();                                                            
+                p2p = new P2PlaceShips();
+                lg = new LoadGame();                                        
             }
 
             ss.enter();
@@ -68,6 +75,12 @@ namespace BattleShip
         }
         protected static GameState getP1PlaceShips() {
             return p1p;
+        }
+        protected static GameState getLoadGame() {
+            return lg;
+        }
+        protected static GameState getSaveGame() {
+            return sg;        
         }
     }
 }

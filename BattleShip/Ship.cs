@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleShip
 {
+    [Serializable()]
     public abstract class Ship:ShipIF
     {
         public List<Point> location = new List<Point>();

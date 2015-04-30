@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace BattleShip
 {
+    [Serializable()]
     class P1turn : GameState
     {
         public override void enter()
@@ -16,8 +17,9 @@ namespace BattleShip
             Form1 ff = (Form1)GameManager.getInstance().gui;
            
             List<Ship> shipLocsList = GameManager.getInstance().player1.getShipLocations();
-
+            List<ShipIF> enemyShips = GameManager.getInstance().player2.getHitInfo();
             ff.showPlayerShips(shipLocsList);
+            ff.showEnemyShips(enemyShips);
             //Form1 f = new Form1();
            // Application.Run(f);
             
@@ -42,6 +44,11 @@ namespace BattleShip
                 //Point p = new Point(ff.getShotX(), ff.getShotY());
                 Point p = new Point(ff.getShotX(), ff.getShotY());
                 GameManager.getInstance().player2.getHit(p);
+                ff.showEnemyShips(GameManager.getInstance().player2.getHitInfo());
+                return this;
+            }
+            if (evt == saveGamePressed) {
+                GameManager.getInstance().saveMemento();
                 return this;
             }
             return this;

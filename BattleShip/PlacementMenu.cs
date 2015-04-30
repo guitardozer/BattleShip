@@ -18,10 +18,13 @@ namespace BattleShip
         {
             InitializeComponent();
 
+            // this is where which ships the player has access to is set
             // for now only three twoHit ships are available
-            shipsAvailable.Add(ShipFactory.getNewShip("twoHit", new Point(0,0), new Point(1,0)));
-            shipsAvailable.Add(ShipFactory.getNewShip("twoHit", new Point(0,0), new Point(0,1)));
-            shipsAvailable.Add(ShipFactory.getNewShip("twoHit", new Point(0,0), new Point(0,1)));
+          
+            shipsAvailable.Add(ShipFactory.getNewShip("TwoHit"));
+            shipsAvailable.Add(ShipFactory.getNewShip("TwoHit"));
+            shipsAvailable.Add(ShipFactory.getNewShip("TwoHit"));
+            
             showPlayerShips(new List<Ship>());
             comboBox1.Items.AddRange(shipsAvailable.ToArray());
            

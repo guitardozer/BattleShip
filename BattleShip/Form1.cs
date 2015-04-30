@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace BattleShip
 {
+    [Serializable()]
     public partial class Form1 : Form
     {
         public GameManager gamemanager;
@@ -29,6 +30,42 @@ namespace BattleShip
             this.playerBoard.Text = s;            
         }
 
+        public void showEnemyShips(List<ShipIF> ships) {
+            List<Point> pts = new List<Point>();
+            char[,] grid = new char[10, 10];
+            // put x through whole grid
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    grid[i, j] = '~';
+                }
+            }
+            for (int i = 0; i < ships.Count; i++)
+            {
+                pts = ships.ElementAt(i).showHit();
+                
+                for (int j = 0; j < pts.Count; j++)
+                {
+                    grid[pts.ElementAt(j).y, pts.ElementAt(j).x] = 'x';
+                }
+                
+            }
+            // draw array to the text box
+            String toDraw = "";
+            for (int i = 0; i < 10; i++)
+            {
+                toDraw += " ";
+                for (int j = 0; j < 10; j++)
+                {
+                    toDraw += grid[i, j];
+                    toDraw += "  ";
+                }
+                toDraw += "\n";
+            }
+            this.enemyBoard.Text = toDraw;
+
+        }
         public void showPlayerShips(List<Ship> ships) {
             List<Point> pts = new List<Point>();
             List<Point> hits = new List<Point>();
@@ -65,9 +102,7 @@ namespace BattleShip
             }
             this.playerBoard.Text = toDraw;
         }
-        public void showEnemyShips(List<ShipIF> enemyShips) { 
-            
-        }
+        
         public void dispInOutputBox(String s) {
          //   this.outputBox.Text += "\n" + s;
             this.outputBox.AppendText(s + "\n");
@@ -102,6 +137,11 @@ namespace BattleShip
         }
         public int getShotY() {
             return comboBox1.SelectedIndex;
+        }
+
+        private void saveGameButton_Click(object sender, EventArgs e)
+        {
+            GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.saveGamePressed);
         }
     }
 }

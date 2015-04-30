@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace BattleShip
 {
+    [Serializable()]
     class TwoHit:Ship
     {
         
         public TwoHit(List<Point> location) {
             this.location = location;
         }
-        public TwoHit() { 
-        
+        public TwoHit() {
+            this.location.Add(new Point(0, 0));
+            this.location.Add(new Point(1, 0));
         }
 
         public override void moveRight()

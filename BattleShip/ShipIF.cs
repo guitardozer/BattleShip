@@ -9,6 +9,7 @@ namespace BattleShip
     public interface ShipIF
     {
         List<Point> showHit();
+    
         bool isSunk();
 
     }

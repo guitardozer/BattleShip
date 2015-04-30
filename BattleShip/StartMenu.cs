@@ -36,5 +36,10 @@ namespace BattleShip
         {
           
         }
+
+        private void loadGameButton_Click(object sender, EventArgs e)
+        {
+            GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.loadGameButtonPressed);
+        }
     }
 }

@@ -12,20 +12,21 @@ namespace BattleShip
             ShipIF sif = (ShipIF)shipToGetIF;
             return sif;
         }
-        public static Ship getNewShip(String boatType, Point p1, Point p2){
+        public static Ship getNewShip(String boatType, List<Point> points){
 
             // later, check if the points are valid, and if not, just extend past p2 to where
             // the ship would need to be based off of the boatType
             // reflection to figure out what the object should be
-            List<Point> pts = new List<Point>();
-            pts.Add(p1);
-            pts.Add(p2);
-            Ship s = new TwoHit(pts);
-          //  s.hitPoint(p1);
+            // Type type = blahwhatever;
+            // Ship ship = (Ship)Activator.CreateInstance(type);                       
+            Type type = Type.GetType("BattleShip." + boatType);
+            Ship s = (Ship)Activator.CreateInstance(type);
+            s.location = points;          
             return s;
-        }
+        } 
         public static Ship getNewShip(String boatType) {
-            Ship s = new TwoHit();
+            Type type = Type.GetType("BattleShip." + boatType);
+            Ship s = (Ship)Activator.CreateInstance(type);            
             return s;
         }
     }
