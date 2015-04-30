@@ -98,10 +98,10 @@ namespace BattleShip
             GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.firePressed);
         }
         public int getShotX() {
-            return comboBox1.SelectedIndex;
+            return comboBox2.SelectedIndex;
         }
         public int getShotY() {
-            return comboBox2.SelectedIndex;
+            return comboBox1.SelectedIndex;
         }
     }
 }
