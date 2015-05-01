@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FiveHit.cs" />
+    <Compile Include="FourHit.cs" />
     <Compile Include="GameLoad.cs" />
     <Compile Include="GameLoader.cs" />
     <Compile Include="GameState.cs" />

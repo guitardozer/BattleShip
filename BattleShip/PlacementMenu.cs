@@ -24,6 +24,8 @@ namespace BattleShip
             shipsAvailable.Add(ShipFactory.getNewShip("TwoHit"));
             shipsAvailable.Add(ShipFactory.getNewShip("TwoHit"));
             shipsAvailable.Add(ShipFactory.getNewShip("ThreeHit"));
+            shipsAvailable.Add(ShipFactory.getNewShip("FourHit"));
+            shipsAvailable.Add(ShipFactory.getNewShip("FiveHit"));
             
             showPlayerShips(new List<Ship>());
             comboBox1.Items.AddRange(shipsAvailable.ToArray());
