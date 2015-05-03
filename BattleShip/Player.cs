@@ -14,6 +14,12 @@ namespace BattleShip
         public List<Ship> sunkShips = new List<Ship>();
         public List<Point> shotsFired = new List<Point>();
 
+        public int shipsRemain() {
+            return activeShips.Count;
+        }
+        public int sunkShipsCount() {
+            return sunkShips.Count;
+        }
         public List<ShipIF> getHitInfo() {
             List<ShipIF> hitInfo = new List<ShipIF>();
             for (int i = 0; i < activeShips.Count; i++) {
@@ -44,6 +50,18 @@ namespace BattleShip
                 }
             }
             return hit;
+        }
+        public bool checkSpecificShip() {
+            return activeShips.ElementAt(0).isSunk();
+        }
+        public bool hasLost() {
+            bool hasLost = true;
+            for (int i = 0; i < activeShips.Count; i++) {
+                if (!activeShips.ElementAt(i).isSunk()) {
+                    hasLost = false;
+                }
+            }
+            return hasLost;
         }
         public void addShip(Ship s) {
             activeShips.Add(s);

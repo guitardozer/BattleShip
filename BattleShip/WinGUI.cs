@@ -16,5 +16,21 @@ namespace BattleShip
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.newGameButtonPressed);
+            GameManager.getInstance().startTheGame();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void WinGUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

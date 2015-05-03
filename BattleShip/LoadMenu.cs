@@ -30,5 +30,14 @@ namespace BattleShip
             this.Hide();
             GameManager.getInstance().setMemento(names[comboBox1.SelectedIndex]);
         }
+
+        private void LoadMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {          
+        }
+
+        private void LoadMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

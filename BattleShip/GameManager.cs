@@ -18,7 +18,9 @@ namespace BattleShip
         [NonSerialized()]public Form gui;
         public Player player1;
         public Player player2;
+        public int numberOfSaves = 0;
         private static GameManager onlyInstance;
+        [NonSerialized()]public GameMode gmm;
 
         
 
@@ -47,7 +49,10 @@ namespace BattleShip
         public void saveMemento() { 
             // implement code for saving a copy of the onlyInstance
             // the gui is not saved, so upon returning it should probably start up the most recent gamestate
-            String filename = @"..\..\gamesaves\SavedGame.bin";
+            this.numberOfSaves++;
+            String filename = @"..\..\gamesaves\save_";
+            filename += numberOfSaves;
+            filename += ".bin";
             Stream TestFileStream = File.Create(filename);
             BinaryFormatter serializer = new BinaryFormatter();
             serializer.Serialize(TestFileStream, GameManager.getInstance());

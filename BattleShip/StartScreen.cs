@@ -32,12 +32,30 @@ namespace BattleShip
             if (evt == loadGameButtonPressed) {
                 return GameState.getLoadGame();
             }
+            if (evt == threeShipSelected) {
+                GameManager.getInstance().gmm = new threeShip();
+                return GameState.getP1PlaceShips();
+            }
+            if (evt == fiveShipSelected) {
+                GameManager.getInstance().gmm = new fiveShip();
+                return GameState.getP1PlaceShips();
+            }
             return this;
         }
 
         public override void showGui() {
-            GameManager.getInstance().gui = new StartMenu();
-            Application.Run(GameManager.getInstance().gui);
+            if (GameManager.getInstance().gui == null)
+            {
+                GameManager.getInstance().gui = new StartMenu();
+                Application.Run(GameManager.getInstance().gui);
+            }
+            else
+            {
+                GameManager.getInstance().gui.Hide();
+                GameManager.getInstance().gui = new StartMenu();
+                GameManager.getInstance().gui.Show();
+            }
+            
         }
     }
 }

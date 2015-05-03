@@ -205,6 +205,7 @@
             this.Controls.Add(this.doneButton);
             this.Name = "PlacementMenu";
             this.Text = "PlacementMenu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlacementMenu_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,9 +223,9 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label15;
+        public System.Windows.Forms.ComboBox comboBox1;
     }
 }

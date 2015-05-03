@@ -12,23 +12,19 @@ namespace BattleShip
 {
     public partial class PlacementMenu : Form
     {
-        List<Ship> shipsAvailable = new List<Ship>();
+        public List<Ship> shipsAvailable = new List<Ship>();
         public List<Ship> completedShips = new List<Ship>();
+        public List<int> placedSelections = new List<int>();
         public PlacementMenu()
         {
             InitializeComponent();
 
             // this is where which ships the player has access to is set
-            // for now only three twoHit ships are available
+            GameMode gm = GameManager.getInstance().gmm;
+            gm.setPM(this);
+            gm.go();
           
-            shipsAvailable.Add(ShipFactory.getNewShip("TwoHit"));
-            shipsAvailable.Add(ShipFactory.getNewShip("TwoHit"));
-            shipsAvailable.Add(ShipFactory.getNewShip("ThreeHit"));
-            shipsAvailable.Add(ShipFactory.getNewShip("FourHit"));
-            shipsAvailable.Add(ShipFactory.getNewShip("FiveHit"));
             
-            showPlayerShips(new List<Ship>());
-            comboBox1.Items.AddRange(shipsAvailable.ToArray());
            
         }
 
@@ -171,10 +167,19 @@ namespace BattleShip
         private void button7_Click(object sender, EventArgs e)
         {
             // place ship
-            completedShips.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+            if (!placedSelections.Contains(comboBox1.SelectedIndex)) {
+                completedShips.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
+                placedSelections.Add(comboBox1.SelectedIndex);
+            }
+           
             //shipsAvailable.RemoveAt(comboBox1.SelectedIndex);
             //comboBox1.Items.Remove(comboBox1.SelectedIndex);
 
+        }
+
+        private void PlacementMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

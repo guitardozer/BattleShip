@@ -20,6 +20,7 @@ namespace BattleShip
             List<ShipIF> enemyShips = GameManager.getInstance().player2.getHitInfo();
             ff.showPlayerShips(GameManager.getInstance().player1, GameManager.getInstance().player2);
             ff.showEnemyShips(GameManager.getInstance().player2, GameManager.getInstance().player1);
+            ff.dispInOutputBox("> Player 1's Turn.");
             //Form1 f = new Form1();
            // Application.Run(f);
             
@@ -40,13 +41,20 @@ namespace BattleShip
             if (evt == firePressed) {                
                 
                 Form1 ff = (Form1)GameManager.getInstance().gui;
-                ff.label13.Text = ff.getShotX().ToString() + " " + ff.getShotY().ToString();
-                //Point p = new Point(ff.getShotX(), ff.getShotY());
+                ff.dispInOutputBox("> Shot Fired!");
+                ff.disableFire();
+                
                 Point p = new Point(ff.getShotX(), ff.getShotY());
                 bool hit = GameManager.getInstance().player2.getHit(p);
                 if(!hit)
                     GameManager.getInstance().player1.addShotFired(p);
                 ff.showEnemyShips(GameManager.getInstance().player2, GameManager.getInstance().player1);
+                if (GameManager.getInstance().player2.hasLost())
+                {
+                    return getPlayerWins();
+                }
+                //ff.dispInOutputBox(GameManager.getInstance().player2.hasLost().ToString());
+                //ff.dispInOutputBox("sunk ships count:" + GameManager.getInstance().player2.sunkShipsCount().ToString());
                 return this;
             }
             if (evt == saveGamePressed) {

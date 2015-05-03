@@ -8,6 +8,7 @@ namespace BattleShip
 {
     class P1PlaceShips:GameState
     {
+        
         ShipFactory sfactory = new ShipFactory();
         public override void enter()
         {

@@ -10,22 +10,28 @@ namespace BattleShip
     {
         public override void enter()
         {
-            throw new NotImplementedException();
+            this.showGui();
         }
 
         public override void exit()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override GameState nextState(int evt)
         {
-            throw new NotImplementedException();
+            if (evt == newGameButtonPressed)
+            {
+                return GameState.getStartScreen();
+            }
+            return this;
         }
 
         public override void showGui()
         {
-            throw new NotImplementedException();
+            GameManager.getInstance().gui.Hide();
+            GameManager.getInstance().gui = new WinGUI();
+            GameManager.getInstance().gui.Show();
         }
     }
 }

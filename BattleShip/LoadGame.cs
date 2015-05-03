@@ -25,6 +25,7 @@ namespace BattleShip
             //if (evt == loadFileSelectedPressed) { 
                 
             //}
+            //nextState is not used here. GameManager will set the GameState depending on the information in the bin file.
             return this;
         }
 

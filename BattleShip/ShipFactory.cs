@@ -12,7 +12,7 @@ namespace BattleShip
             ShipIF sif = (ShipIF)shipToGetIF;
             return sif;
         }
-        public static Ship getNewShip(String boatType, List<Point> points){
+        public static ShipIF getNewShip(String boatType, List<Point> points){
 
             // later, check if the points are valid, and if not, just extend past p2 to where
             // the ship would need to be based off of the boatType
@@ -24,7 +24,7 @@ namespace BattleShip
             s.location = points;          
             return s;
         } 
-        public static Ship getNewShip(String boatType) {
+        public static ShipIF getNewShip(String boatType) {
             Type type = Type.GetType("BattleShip." + boatType);
             Ship s = (Ship)Activator.CreateInstance(type);            
             return s;

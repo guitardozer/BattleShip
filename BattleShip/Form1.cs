@@ -118,6 +118,9 @@ namespace BattleShip
          //   this.outputBox.Text += "\n" + s;
             this.outputBox.AppendText(s + "\n");
         }
+        public void disableFire() {
+            this.button2.Enabled = false;
+        }
         private void messageBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -125,12 +128,14 @@ namespace BattleShip
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+            Application.Exit();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            // occurs before the form is closed but after the user has specified to close the form
+            if(GameManager.getInstance().gamestate is P1turn || GameManager.getInstance().gamestate is P2turn)
+                GameManager.getInstance().saveMemento();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -153,6 +158,11 @@ namespace BattleShip
         private void saveGameButton_Click(object sender, EventArgs e)
         {
             GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.saveGamePressed);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

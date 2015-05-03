@@ -59,6 +59,8 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "LoadMenu";
             this.Text = "LoadMenu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoadMenu_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoadMenu_FormClosed);
             this.ResumeLayout(false);
 
         }

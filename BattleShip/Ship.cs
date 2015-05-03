@@ -27,13 +27,12 @@ namespace BattleShip
         public abstract void rotateRight();
         public bool isSunk()
         {
-            Boolean sunk = true;
-            foreach (Point element in location) {
-                if (!hits.Contains(element)) {
-                    sunk = false;
-                }
+            Boolean sunk = false;
+            if (hits.Count == location.Count)
+            {
+                sunk = true;
             }
-            return sunk;
+                return sunk;
         }
         public bool containsPoint(Point p) {
             for (int i = 0; i < location.Count; i++) {

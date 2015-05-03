@@ -13,11 +13,10 @@ namespace BattleShip
         static StartScreen ss;
         static P1turn p1t;
         static P2turn p2t;
-        static SaveGame sg;
         static P1PlaceShips p1p;
         static P2PlaceShips p2p;
-        static NewGame ng;
         static LoadGame lg;
+        static PlayerWins pw;
 
         public const int newGameButtonPressed = 0;
         public const int donePlacingPressed = 1;
@@ -26,6 +25,8 @@ namespace BattleShip
         public const int loadGameButtonPressed = 4;
         public const int saveGamePressed = 5;
         public const int loadFileSelectedPressed = 6;
+        public const int threeShipSelected = 7;
+        public const int fiveShipSelected = 8;
 
         
         public GameState processEvent(int evt) {
@@ -52,17 +53,14 @@ namespace BattleShip
                 ss = new StartScreen();
                 p1t = new P1turn();
                 p2t = new P2turn();
-                sg = new SaveGame();
                 p1p = new P1PlaceShips();
                 p2p = new P2PlaceShips();
-                lg = new LoadGame();                                        
+                lg = new LoadGame();
+                pw = new PlayerWins();                        
             }
 
             ss.enter();
             return ss;
-        }
-        protected static GameState getNewGame() {
-            return ng;
         }
         protected static GameState getP1Turn() {
             return p1t;
@@ -79,8 +77,13 @@ namespace BattleShip
         protected static GameState getLoadGame() {
             return lg;
         }
-        protected static GameState getSaveGame() {
-            return sg;        
+        protected static GameState getStartScreen()
+        {
+            return ss;
+        }
+        protected static GameState getPlayerWins()
+        {
+            return pw;
         }
     }
 }
