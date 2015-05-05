@@ -29,6 +29,8 @@ namespace BattleShip
                 {
                     GameManager.getInstance().player2.addShip(ships.ElementAt(i));
                 }
+                GameManager.getInstance().player2.name = pm.getName();
+
                 return GameState.getP1Turn();
             }
             return this;

@@ -10,11 +10,19 @@ namespace BattleShip
     class FiveHit:Ship
     {
         public FiveHit() {
-            this.location.Add(new Point(0, 0));
-            this.location.Add(new Point(1, 0));
-            this.location.Add(new Point(2, 0));
-            this.location.Add(new Point(3, 0));
-            this.location.Add(new Point(4, 0));
+            this.horizontalPosition.Add(new Point(0, 0));
+            this.horizontalPosition.Add(new Point(1, 0));
+            this.horizontalPosition.Add(new Point(2, 0));
+            this.horizontalPosition.Add(new Point(3, 0));
+            this.horizontalPosition.Add(new Point(4, 0));
+
+            this.verticalPosition.Add(new Point(0, 0));
+            this.verticalPosition.Add(new Point(0, 1));
+            this.verticalPosition.Add(new Point(0, 2));
+            this.verticalPosition.Add(new Point(0, 3));
+            this.verticalPosition.Add(new Point(0, 4));
+
+            this.location = this.horizontalPosition;
         }
         public override void moveRight()
         {
@@ -92,14 +100,17 @@ namespace BattleShip
             }
         }
 
-        public override void rotateLeft()
+        public override void rotate()
         {
-            throw new NotImplementedException();
-        }
-
-        public override void rotateRight()
-        {
-            throw new NotImplementedException();
+            this.isHorizontal = !this.isHorizontal;
+            if (this.isHorizontal)
+            {
+                this.location = this.horizontalPosition;
+            }
+            else
+            {
+                this.location = this.verticalPosition;
+            }
         }
     }
 }

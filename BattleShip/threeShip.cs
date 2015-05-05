@@ -19,8 +19,8 @@ namespace BattleShip
         public override void go()
         {
             this.pm.shipsAvailable.Add((Ship)ShipFactory.getNewShip("TwoHit"));
-            this.pm.shipsAvailable.Add((Ship)ShipFactory.getNewShip("TwoHit"));
             this.pm.shipsAvailable.Add((Ship)ShipFactory.getNewShip("ThreeHit"));
+            this.pm.shipsAvailable.Add((Ship)ShipFactory.getNewShip("FourHit"));
             //shipsAvailable.Add((Ship)ShipFactory.getNewShip("FourHit"));
             //shipsAvailable.Add((Ship)ShipFactory.getNewShip("FiveHit"));
 

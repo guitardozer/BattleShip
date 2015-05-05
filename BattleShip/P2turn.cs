@@ -17,7 +17,7 @@ namespace BattleShip
             List<ShipIF> enemyShips = GameManager.getInstance().player1.getHitInfo();
             ff.showPlayerShips(GameManager.getInstance().player2, GameManager.getInstance().player1);
             ff.showEnemyShips(GameManager.getInstance().player1, GameManager.getInstance().player2);
-            ff.dispInOutputBox("> Player 2's Turn.");
+            ff.dispInOutputBox("> " + GameManager.getInstance().player2.name + "'s Turn.");
            
         }
 

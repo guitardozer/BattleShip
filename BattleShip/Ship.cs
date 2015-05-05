@@ -11,6 +11,23 @@ namespace BattleShip
     {
         public List<Point> location = new List<Point>();
         List<Point> hits = new List<Point>();
+
+        public bool isHorizontal = true;
+        protected List<Point> horizontalPosition = new List<Point>();
+        protected List<Point> verticalPosition = new List<Point>();
+
+        public bool isOverlapping(List<Ship> ships) {
+            bool overlapping = false;
+            for (int i = 0; i < ships.Count; i++) {
+                for (int j = 0; j < ships.ElementAt(i).location.Count; j++) { 
+                    if(this.hasThatPoint(ships.ElementAt(i).location.ElementAt(j))){
+                        overlapping = true;
+                    }
+                }
+            }
+            return overlapping;
+        }
+
         public Ship() { }
         public Ship(List<Point> locations) {
             this.location = locations;
@@ -19,12 +36,20 @@ namespace BattleShip
         {
             return hits;
         }
+        public bool hasThatPoint(Point p) {
+            bool hasPoint = false;
+            for (int i = 0; i < this.location.Count; i++) {
+                if (this.location.ElementAt(i).isSameAs(p)) {
+                    hasPoint = true;
+                }
+            }
+            return hasPoint;
+        }
         public abstract void moveRight();
         public abstract void moveLeft();
         public abstract void moveUp();
         public abstract void moveDown();
-        public abstract void rotateLeft();
-        public abstract void rotateRight();
+        public abstract void rotate();
         public bool isSunk()
         {
             Boolean sunk = false;

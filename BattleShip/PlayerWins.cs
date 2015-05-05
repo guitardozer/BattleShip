@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace BattleShip
 {
-    class PlayerWins: GameState
+    class PlayerWins : GameState
     {
         public override void enter()
         {
             this.showGui();
+            if (GameManager.getInstance().player1.hasLost())
+            {
+                WinGUI wing = (WinGUI)GameManager.getInstance().gui;
+                wing.setWinner(GameManager.getInstance().player2.name);
+            }
+            else
+            {
+                WinGUI wing = (WinGUI)GameManager.getInstance().gui;
+                wing.setWinner(GameManager.getInstance().player1.name);
+            }
         }
 
         public override void exit()

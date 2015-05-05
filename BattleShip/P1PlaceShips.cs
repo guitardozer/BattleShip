@@ -34,6 +34,7 @@ namespace BattleShip
                 for (int i = 0; i < ships.Count; i++) {
                     GameManager.getInstance().player1.addShip(ships.ElementAt(i));
                 }
+                GameManager.getInstance().player1.name = pm.getName();
                 return GameState.getP2PlaceShips();
             }
             return this;

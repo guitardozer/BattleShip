@@ -23,8 +23,8 @@ namespace BattleShip
             GameMode gm = GameManager.getInstance().gmm;
             gm.setPM(this);
             gm.go();
-          
-            
+
+            doneButton.Enabled = false;
            
         }
 
@@ -34,6 +34,20 @@ namespace BattleShip
             GameManager.getInstance().gamestate = GameManager.getInstance().gamestate.processEvent(GameState.donePlacingPressed);
         }
 
+        public String getName()
+        {
+            return playerNameTextBox.Text;
+        }
+        public void checkOverlap(Ship s) {
+            bool isOverlapping = s.isOverlapping(completedShips);
+            if (isOverlapping)
+            {
+                this.button7.Enabled = false;
+            }
+            else {
+                this.button7.Enabled = true;
+            }
+        }
         public void showPlayerShips(List<Ship> ships)
         {
             List<Point> pts = new List<Point>();
@@ -76,8 +90,8 @@ namespace BattleShip
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<Ship> selected = new List<Ship>();
-           // selected.Add((Ship)comboBox1.SelectedItem);
-
+           // selected.Add((Ship)comboBox1.SelectedItem);            
+            checkOverlap(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             selected.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             for (int i = 0; i < completedShips.Count; i++) {
                 selected.Add(completedShips.ElementAt(i));
@@ -88,6 +102,7 @@ namespace BattleShip
         private void button2_Click(object sender, EventArgs e)
         {
             shipsAvailable.ElementAt(comboBox1.SelectedIndex).moveRight();
+            checkOverlap(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             List<Ship> sel = new List<Ship>();
             sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             for (int i = 0; i < completedShips.Count; i++)
@@ -105,6 +120,7 @@ namespace BattleShip
         private void button3_Click(object sender, EventArgs e)
         {
             shipsAvailable.ElementAt(comboBox1.SelectedIndex).moveUp();
+            checkOverlap(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             List<Ship> sel = new List<Ship>();
             sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             for (int i = 0; i < completedShips.Count; i++)
@@ -116,7 +132,9 @@ namespace BattleShip
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             shipsAvailable.ElementAt(comboBox1.SelectedIndex).moveLeft();
+            checkOverlap(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             List<Ship> sel = new List<Ship>();
             sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             for (int i = 0; i < completedShips.Count; i++)
@@ -129,6 +147,7 @@ namespace BattleShip
         private void button4_Click(object sender, EventArgs e)
         {
             shipsAvailable.ElementAt(comboBox1.SelectedIndex).moveDown();
+            checkOverlap(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             List<Ship> sel = new List<Ship>();
             sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             for (int i = 0; i < completedShips.Count; i++)
@@ -140,8 +159,9 @@ namespace BattleShip
 
         private void button5_Click(object sender, EventArgs e)
         {
-            // rotate left
-            shipsAvailable.ElementAt(comboBox1.SelectedIndex).rotateLeft();
+            // rotate
+            shipsAvailable.ElementAt(comboBox1.SelectedIndex).rotate();
+            checkOverlap(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             List<Ship> sel = new List<Ship>();
             sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
             for (int i = 0; i < completedShips.Count; i++)
@@ -153,15 +173,6 @@ namespace BattleShip
 
         private void button6_Click(object sender, EventArgs e)
         {
-            // rotate right
-            shipsAvailable.ElementAt(comboBox1.SelectedIndex).rotateRight();
-            List<Ship> sel = new List<Ship>();
-            sel.Add(shipsAvailable.ElementAt(comboBox1.SelectedIndex));
-            for (int i = 0; i < completedShips.Count; i++)
-            {
-                sel.Add(completedShips.ElementAt(i));
-            }
-            showPlayerShips(sel);
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -174,6 +185,11 @@ namespace BattleShip
            
             //shipsAvailable.RemoveAt(comboBox1.SelectedIndex);
             //comboBox1.Items.Remove(comboBox1.SelectedIndex);
+
+            if (placedSelections.Count >= comboBox1.Items.Count)
+            {
+                doneButton.Enabled = true;
+            }
 
         }
 

@@ -12,8 +12,13 @@ namespace BattleShip
         
        
         public TwoHit() {
-            this.location.Add(new Point(0, 0));
-            this.location.Add(new Point(1, 0));
+            this.horizontalPosition.Add(new Point(0, 0));
+            this.horizontalPosition.Add(new Point(1, 0));
+
+            this.verticalPosition.Add(new Point(0, 0));
+            this.verticalPosition.Add(new Point(0, 1));
+
+            this.location = this.horizontalPosition;
         }
 
         public override void moveRight()
@@ -88,9 +93,9 @@ namespace BattleShip
             }
         }
 
-        public override void rotateLeft()
+        public override void rotate()
         {
-            if (location.Count == 2) {
+            /*if (location.Count == 2) {
                 if (location.ElementAt(0).y == location.ElementAt(1).y) {
                     if (location.ElementAt(0).x < location.ElementAt(1).x) {
                         if (location.ElementAt(0).x < 9 && location.ElementAt(0).y > 1)
@@ -111,12 +116,16 @@ namespace BattleShip
                     
                 
                 }
-            }            
-        }
-
-        public override void rotateRight()
-        {
-            throw new NotImplementedException();
+            }*/
+            this.isHorizontal = !this.isHorizontal;
+            if (this.isHorizontal)
+            {
+                this.location = this.horizontalPosition;
+            }
+            else
+            {
+                this.location = this.verticalPosition;
+            }
         }
     }
 }

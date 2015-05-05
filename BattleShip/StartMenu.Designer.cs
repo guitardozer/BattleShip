@@ -35,7 +35,7 @@
             // 
             // newGameButton
             // 
-            this.newGameButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.newGameButton.BackColor = System.Drawing.SystemColors.Control;
             this.newGameButton.Location = new System.Drawing.Point(65, 72);
             this.newGameButton.Name = "newGameButton";
             this.newGameButton.Size = new System.Drawing.Size(144, 23);

@@ -27,10 +27,17 @@ namespace BattleShip
         {
             Application.Exit();
         }
-
+        public void setWinner(string playername) {
+            this.label1.Text = playername + " is the winner.";
+        }
         private void WinGUI_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

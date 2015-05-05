@@ -44,6 +44,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Player# is victorious!\r\nBask in the defeat \r\nof your enemy!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
